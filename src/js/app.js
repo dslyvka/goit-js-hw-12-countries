@@ -25,6 +25,9 @@ function onSearch() {
 function renderCountry() {
   onSearch().then(data => {
     if (data.status === 404) {
+      error({
+        title: 'Please, enter the name of the real country!'
+      });
       clearMarkup();
       return;
     } else if (data.length >= 2 && data.length <= 10) {
